@@ -26,6 +26,7 @@
     <script src="{{ asset('/js/boilerplate.js') }}"></script>
     <script>
         $(function() {
+            $.ajaxSetup({headers:{'X-CSRF-TOKEN':'{{ csrf_token() }}'}});
             bootbox.setLocale("{{ App::getLocale() }}");
             @if(Session::has('growl'))
                 @if(is_array(Session::get('growl')))
