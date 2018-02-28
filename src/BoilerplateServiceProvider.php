@@ -32,14 +32,11 @@ class BoilerplateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Publish all files when calling php artisan vendor:publish
-        $this->publishes([ __DIR__.'/config'         => config_path()], 'config');
-        $this->publishes([ __DIR__.'/routes'         => base_path('routes/')], 'routes');
-        $this->publishes([ __DIR__.'/resources'      => base_path('resources/')], 'resources');
-        $this->publishes([ __DIR__.'/public'         => base_path('public/')], 'public');
-        $this->publishes([ __DIR__.'/Models'         => app_path('Models')], 'models');
-        $this->publishes([ __DIR__.'/Notifications'  => app_path('Notifications')], 'notifications');
-        $this->publishes([ __DIR__.'/webpack.mix.js' => base_path('webpack.mix.js')], 'webpack');
+        // Publish files when calling php artisan vendor:publish
+        $this->publishes([ __DIR__.'/config'                    => config_path()], 'config');
+        $this->publishes([ __DIR__.'/public'                    => base_path('public/')], 'public');
+        $this->publishes([ __DIR__.'/resources/lang/laravel'    => base_path('resources/lang')], 'lang');
+        $this->publishes([ __DIR__.'/resources/views/errors'    => base_path('resources/views')], 'errors');
 
         // If routes file has been published, load routes from the published file
         if (is_file(base_path('routes/boilerplate.php'))) {
@@ -78,7 +75,7 @@ class BoilerplateServiceProvider extends ServiceProvider
             'auth.providers.users.driver' => config('boilerplate.auth.providers.users.driver', 'eloquent'),
             'auth.providers.users.model' => config('boilerplate.auth.providers.users.model', 'App\User'),
             'auth.providers.users.table' => config('boilerplate.auth.providers.users.table', 'users'),
-            'app.log' => 'daily',
+            'logging.channels.stack.channels' => array_merge(['daily'], config('logging.channels.stack.channels')),
             'log-viewer.route.enabled' => false,
             'log-viewer.menu.filter-route'  => 'logs.filter'
         ]);

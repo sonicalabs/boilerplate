@@ -36,12 +36,12 @@ return [
         'deletesuccess' => "El usuario ha sido eliminado correctamente",
     ],
     'profile' => [
-        'title'         => 'Perfil del usuario',
-        'subscribedsince' => 'Miembro desde :date ( :since )',
-        'avatar'        => 'Imagen del perfil',
-        'delavatar'     => 'Eliminar imagen del perfil',
-        'confirmdelavatar' => '¿Estás seguro de que deseas eliminar la imagen del perfil?',
-        'successdelavatar' => 'La imagen del perfil ha sido eliminada',
-        'successupdate' => 'El perfil ha sido actualizado correctamente'
+        'title'             => 'Perfil del usuario',
+        'subscribedsince'   => 'Miembro desde :date ( :since )',
+        'avatar'            => 'Imagen del perfil',
+        'delavatar'         => 'Eliminar imagen del perfil',
+        'confirmdelavatar'  => '¿Estás seguro de que deseas eliminar la imagen del perfil?',
+        'successdelavatar'  => 'La imagen del perfil ha sido eliminada',
+        'successupdate'     => 'El perfil ha sido actualizado correctamente'
     ]
 ];
